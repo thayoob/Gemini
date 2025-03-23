@@ -6,6 +6,7 @@ import { Context } from '../../context/context';
 const main = () => {
 
     const { onSend, recentPrompt, showResult, loading, resultData, setInput, input } = useContext(Context);
+
     return (
         <div className="main">
             <div className="nav">
@@ -59,11 +60,12 @@ const main = () => {
 
                 <div className="main-bottom">
                     <div className="search-box">
-                        <input onChange={(e) => { setInput(e.target.value) }} value={input} type="text" placeholder='Enter a promt here' />
+                        <input onChange={(e) => setInput(e.target.value)} value={input} type="text" placeholder='Enter a promt here' />
                         <div>
                             <img src={assets.gallery_icon} alt="" />
                             <img src={assets.mic_icon} alt="" />
-                            <img onClick={() => onSend()} src={assets.send_icon} alt="" />
+
+                            {input ? <img onClick={() => onSend()} src={assets.send_icon} alt="" /> : null}
                         </div>
 
                     </div>
