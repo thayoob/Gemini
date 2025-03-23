@@ -5,7 +5,7 @@ export const Context = createContext()
 
 const ContextProvider = (props) => {
 
-    const [input, setInput] = useState(" ");
+    const [input, setInput] = useState("");
     const [recentPrompt, setRecentPrompt] = useState("");
     const [prevPrompts, setPrevPrompts] = useState([]);
     const [showResult, setShowResult] = useState(false);

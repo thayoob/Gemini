@@ -1,4 +1,4 @@
-const GEMINI_API_KEY = ""
+const GEMINI_API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
 
 import {
     GoogleGenerativeAI,
@@ -29,7 +29,7 @@ async function run(promt) {
     });
 
     const result = await chatSession.sendMessage(promt);
-    console.log(result.response.text());
+    // console.log(result.response.text());
 
     return result.response.text();
 }
