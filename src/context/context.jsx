@@ -1,5 +1,6 @@
 import { createContext, useState } from "react";
 import run from "../config/gemini";
+import useLocalStorage from "../hooks/useLocalStorage";
 
 export const Context = createContext()
 
@@ -7,7 +8,7 @@ const ContextProvider = (props) => {
 
     const [input, setInput] = useState("");
     const [recentPrompt, setRecentPrompt] = useState("");
-    const [prevPrompts, setPrevPrompts] = useState([]);
+    const [prevPrompts, setPrevPrompts] = useLocalStorage("prevPrompts", []);
     const [showResult, setShowResult] = useState(false);
     const [loading, setLoading] = useState(false);
     const [resultData, setResultData] = useState("");
